@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+    <title>Hi Dr. Hou</title>
+
+</head>
+
+
+<style>
+
+body {
+    background-color: #4B4B4B;
+    font-family: Sans-Serif;
+}
+table {
+    background-color: #FEFEFE;
+    width: 75%;
+    border-spacing: 5px;
+}
+.title {
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+.data {
+    font-size: 1vw;
+    font-weight: 300;
+}
+
+</style>
+
+
+<body>
+
+    <div id="content">
+    
+        <center>
+
+            <table>
+
+                <tr class="title">
+                    {% if show_id == True %}
+                        <th>ID</th>
+                    {% endif %}
+                    {% if show_name == True %}
+                        <th>Name</th>
+                    {% endif %}
+                    {% if show_dept == True %}
+                        <th>Department</th>
+                    {% endif %}
+                    {% if show_salary == True %}
+                        <th>Salary</th>
+                    {% endif %}
+                </tr>
+
+                {% for entry in data %}
+
+                    <tr>
+                        {% for key, value in entry.items %}
+                            {% if key == "ID" and show_id == True %}
+                                <th>{{ value }}</th>
+                            {% endif %}
+                            {% if key == "name" and show_name == True %}
+                                <th>{{ value }}</th>
+                            {% endif %}
+                            {% if key == "dept" and show_dept == True %}
+                                <th>{{ value }}</th>
+                            {% endif %}
+                            {% if key == "salary" and show_salary == True %}
+                                <th>{{ value }}</th>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </center>
+
+    </div>
+
+</body>
+
+
+</html>
